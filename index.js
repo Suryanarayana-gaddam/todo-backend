@@ -24,7 +24,7 @@ app.get("/", (req,res)=> {
 
 async function run(){
     try{
-        const db = await client.connect();
+        await client.connect();
         const users = client.db("TODO").collection("users");
         const tasks = client.db("TODO").collection("tasks");
 
@@ -84,6 +84,7 @@ async function run(){
         app.get("/getuser/:username", async (req,res) => {
             try {
                 const username = req.params.username;
+                console.log("Username :",username)
                 const user = await users.findOne({username});
                 if(!user){
                     return res.status(501).json("Error in adding task");
