@@ -1,9 +1,9 @@
 const User = require("../models/users");
-
+const bcrypt = require("bcryptjs");
 const RegisterUser = async (req,res) => {
     try{
         const {username,email,password} = req.body;
-        const existingUser = await User.findOne({email});
+        const existingUser = await User.findOne({email: email});
         if(existingUser){
             return res.status(403).json("Existing user, Please login!")
         }
@@ -23,7 +23,7 @@ const LoginUser = async (req,res) => {
         if(!UserDetails){
             return res.status(404).json({error:"User not found! Please Create an account and try again..."})
         }
-        const passwordMatch = await bcrypt.compare(password,UserDetails.password);
+        const passwordMatch = bcrypt.compare(password,UserDetails.password);
         if(!passwordMatch){
             return res.status(401).json("Password was incorrect!")
         }else{
