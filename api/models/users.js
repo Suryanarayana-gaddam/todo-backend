@@ -4,8 +4,8 @@ const {Schema} = mongoose;
 const userSchema = new Schema({
     username :
         { 
-            String,
-            required : true
+            type :String,
+            require : true
         },
     password :
         {
@@ -15,7 +15,7 @@ const userSchema = new Schema({
     email : 
         {
             type : String,
-            required : true
+            require:true
         },
     tasks :
         [{

@@ -8,3 +8,5 @@ router.get("/get-tasks/:username",GetTaskByUsername);
 router.post("/addtask/:username",AddTask);
 router.patch("/update/task/:id",UpdateTaskById);
 router.delete("/delete-task/:id",DeleteTaskById);
+
+module.exports = router

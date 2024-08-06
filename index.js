@@ -23,7 +23,7 @@ mongoose.connect(uri)
 .catch((error) => console.log("Error connecting to the Mongo DB !",error));
 
 const userRoutes = require("./api/routers/userRoutes");
-const taskRoutes = require("./api/routers//taskRoutes");
+const taskRoutes = require("./api/routers/taskRoutes");
 
 app.use("/user",userRoutes);
 app.use("/",userRoutes);
