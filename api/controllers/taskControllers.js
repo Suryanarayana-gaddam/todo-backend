@@ -6,7 +6,7 @@ const AddTask = async (req,res) => {
     const {taskTitle,dateScheduled,description} = req.body;
     const username = req.params.username;
     try {
-        const result = await Task.insertOne({username,taskTitle,dateScheduled,description})
+        const result = await Task.create({username,taskTitle,dateScheduled,description})
         const newTask = await Task.findOne({username});
         await User.updateOne(
             {username},
