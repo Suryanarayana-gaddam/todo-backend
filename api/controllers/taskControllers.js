@@ -25,7 +25,8 @@ const AddTask = async (req,res) => {
 const GetTaskByUsername = async (req,res) => {
     try {
         const username = req.params.username;
-        const tasksByUsername = await Task.find({ username : username}).toArray();
+        const tasksByUsername = await Task.find({ username : username});
+        console.log("re :",tasksByUsername)
         if(!tasksByUsername){
             return res.status(501).json("Error in adding task");
         }
