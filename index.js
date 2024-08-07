@@ -10,7 +10,7 @@ const bcrypt = require("bcryptjs")
 const port = process.env.PORT || 5990;
 
 const corsOptions = {
-    origin: ['https://todo-backend-six-lac.vercel.app/', 'http://localhost:5990','http://localhost:5173','https://todo-frontend-gamma-five.vercel.app'],
+    origin: ['https://todo-backend-six-lac.vercel.app', 'http://localhost:5990','http://localhost:5173','https://todo-frontend-gamma-five.vercel.app'],
 }
 app.use(cors(corsOptions))
 app.use(express.json())
